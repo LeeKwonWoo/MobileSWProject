@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <AbsoluteLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/girl">
+
+        <Button
+            android:id="@+id/loginbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="107dp"
+            android:layout_y="558dp"
+            android:text="로그인" />
+
+        <Button
+            android:id="@+id/signbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="238dp"
+            android:layout_y="558dp"
+            android:text="회원가입" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="65dp"
+            android:layout_y="275dp"
+            android:text="차 번호:" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="69dp"
+            android:layout_y="348dp"
+            android:text="비밀번호:" />
+
+        <EditText
+            android:id="@+id/userIdText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="154dp"
+            android:layout_y="258dp"
+            android:ems="10"
+            android:hint="차 번호를 입력하세요." />
+
+        <EditText
+            android:id="@+id/userPasswordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="158dp"
+            android:layout_y="335dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="password를 입력하세요."/>
+
+    </AbsoluteLayout>
+
+
+</LinearLayout>

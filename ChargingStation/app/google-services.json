@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "93194723730",
+    "firebase_url": "https://mobileproject-dab0f.firebaseio.com",
+    "project_id": "mobileproject-dab0f",
+    "storage_bucket": "mobileproject-dab0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93194723730:android:419865fddc0a0d1aa4a14b",
+        "android_client_info": {
+          "package_name": "com.example.chargingstation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93194723730-uant3aqst46f4mfu6fdmvepgh0tin9is.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chargingstation",
+            "certificate_hash": "9304e289222f5cd7308d82824bb84ffe1ed28dac"
+          }
+        },
+        {
+          "client_id": "93194723730-kkffo4l6av8g6s4k58ca2lotubo4gi9s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBb-Q_osBppkITh2l7PgObnXuvV1O6LuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93194723730-kkffo4l6av8g6s4k58ca2lotubo4gi9s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
