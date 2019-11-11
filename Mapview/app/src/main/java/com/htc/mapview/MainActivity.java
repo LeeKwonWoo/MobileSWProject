@@ -1,5 +1,7 @@
 package com.htc.mapview;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.skt.Tmap.TMapMarkerItem;
+import com.skt.Tmap.TMapPoint;
 import com.skt.Tmap.TMapView;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -20,6 +24,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,16 +33,16 @@ public class MainActivity extends AppCompatActivity {
     String data;
     EditText edit;
     TextView text;
-    //LinearLayout linearLayout1;
+    LinearLayout linearLayout1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
          edit= findViewById(R.id.text1);
-         text= findViewById(R.id.pars1);
+         //text= findViewById(R.id.pars1);
 
-       // linearLayout1 = (LinearLayout)findViewById(R.id.map1);
+       linearLayout1 = (LinearLayout)findViewById(R.id.map1);
 
 
         TMapView tMapView = new TMapView(this);
@@ -50,96 +55,111 @@ public class MainActivity extends AppCompatActivity {
         tMapView.setLanguage(TMapView.LANGUAGE_KOREAN);
         tMapView.setTrackingMode(true);
         tMapView.setSightVisible(true);
-        //linearLayout1.addView(tMapView);
-    }
-    public void mOnClick(View v)
-    {
-        switch (v.getId())
+        linearLayout1.addView(tMapView);
+
+        final ArrayList arrayList = new ArrayList();
+        arrayList.add(new TMapPoint(37.573611,126.976011));
+        arrayList.add(new TMapPoint(37.571076,126.995880));
+        arrayList.add(new TMapPoint(37.559352,127.002350));
+        arrayList.add(new TMapPoint(37.5660935,127.0455256));
+        arrayList.add(new TMapPoint(37.540085,127.002804));
+        arrayList.add(new TMapPoint(37.580650,127.047938));
+        arrayList.add(new TMapPoint(37.598454,127.061848));
+
+        final Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_background);
+        for (int i=0; i<arrayList.size(); i++)
         {
-            case  R.id.serch:
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //TODO Auto-generatred method stub
-                        data = getOpenData();
-
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                text.setText(data);
-                            }
-                        });
-                    }
-                }).start();
-                break;
+            TMapMarkerItem mapMarkerItem1= new TMapMarkerItem();
+            mapMarkerItem1.setIcon(bitmap);
+            mapMarkerItem1.setTMapPoint((TMapPoint) arrayList.get(i));
+            tMapView.addMarkerItem("전기차 충전소"+i,mapMarkerItem1);
         }
     }
+//    public void mOnClick(View v)
+//    {
+//        switch (v.getId())
+//        {
+//            case  R.id.serch:
+//
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        data = getOpenData();
+//
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                text.setText(data);
+//                            }
+//                        });
+//                    }
+//                }).start();
+//                break;
+//        }
+//    }
 
-    String getOpenData()
-    {
-        StringBuffer buffer = new StringBuffer();
-
-        String str = edit.getText().toString();
-        String location = URLEncoder.encode(str);
-
-        String queryUrl="http://open.ev.or.kr:8080/openapi/services/rest/EvChargerService?serviceKey=97LYMB0fJkAg2B2u4fk76Z5ywPhmDYfaDo689Fir4D8K4aejesj9wCtEyiJBYyd6HsICyw1T7KvgExRf4L2RMg%3D%3D"
-                +"addr="+location
-                +"&pageNo=1&numOFRows=1000&ServiceKey="+key;
-        try {
-
-            URL url = new URL(queryUrl);
-            InputStream is = url.openStream();
-
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-            XmlPullParser xpp = factory.newPullParser();
-            xpp.setInput(new InputStreamReader(is, StandardCharsets.UTF_8));
-
-            String tag;
-
-            xpp.next();
-            int eventType=xpp.getEventType();
-            while (eventType != XmlPullParser.END_DOCUMENT)
-            {
-                switch (eventType)
-                {
-                    case XmlPullParser.START_DOCUMENT:
-                        break;
-
-                        case XmlPullParser.START_TAG:
-                            tag=xpp.getName();
-                            if (tag.equals("item"));
-                            else if(tag.equals("statNm"))
-                            {
-                                buffer.append("명칭: ");
-                                xpp.next();
-                                buffer.append(xpp.getText());
-                                buffer.append("\n");
-                            }
-                            else if(tag.equals("addrDoro"))
-                            {
-                                buffer.append("주소: ");
-                                xpp.next();
-                                buffer.append(xpp.getText());
-                                buffer.append("\n");
-                            }
-                            break;
-
-                            case XmlPullParser.TEXT:
-                                break;
-
-                                case XmlPullParser.END_DOCUMENT:
-                                    tag=xpp.getName();
-                                    if (tag.equals("item")) buffer.append("\n");
-                                    break;
-                }
-                eventType =xpp.next();
-            }
-        }catch (Exception e)
-        {
-         // TODO Auto-generated catch blocke.printStackTrace();
-        }
-        return  buffer.toString();
-        }
+//    String getOpenData()
+//    {
+//        StringBuffer buffer = new StringBuffer();
+//
+//        String str = edit.getText().toString();
+//        String location = URLEncoder.encode(str);
+//
+//        String queryUrl="http://open.ev.or.kr:8080/openapi/services/rest/EvChargerService?serviceKey=97LYMB0fJkAg2B2u4fk76Z5ywPhmDYfaDo689Fir4D8K4aejesj9wCtEyiJBYyd6HsICyw1T7KvgExRf4L2RMg%3D%3D"
+//              +"addrDoro="+location +"&pageNo=1&numOFRows=1000&ServiceKey="+key;
+//        try {
+//
+//            URL url = new URL(queryUrl);
+//            InputStream is = url.openStream();
+//
+//            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+//            XmlPullParser xpp = factory.newPullParser();
+//            xpp.setInput(new InputStreamReader(is, StandardCharsets.UTF_8));
+//
+//            String tag;
+//
+//            xpp.next();
+//            int eventType=xpp.getEventType();
+//            while (eventType != XmlPullParser.END_DOCUMENT)
+//            {
+//                switch (eventType)
+//                {
+//                    case XmlPullParser.START_DOCUMENT:
+//                        break;
+//
+//                        case XmlPullParser.START_TAG:
+//                            tag=xpp.getName();
+//                            if (tag.equals("item"));
+//                            else if(tag.equals("statNm"))
+//                            {
+//                                buffer.append("명칭: ");
+//                                xpp.next();
+//                                buffer.append(xpp.getText());
+//                                buffer.append("\n");
+//                            }
+//                            else if(tag.equals("addrDoro"))
+//                            {
+//                                buffer.append("주소: ");
+//                                xpp.next();
+//                                buffer.append(xpp.getText());
+//                                buffer.append("\n");
+//                            }
+//                            break;
+//
+//                            case XmlPullParser.TEXT:
+//                                break;
+//
+//                                case XmlPullParser.END_DOCUMENT:
+//                                    tag=xpp.getName();
+//                                    if (tag.equals("item")) buffer.append("\n");
+//                                    break;
+//                }
+//                eventType =xpp.next();
+//            }
+//        }catch (Exception e)
+//        {
+//        }
+//        return  buffer.toString();
+//        }
 
     }
