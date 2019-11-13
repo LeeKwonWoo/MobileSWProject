@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <AbsoluteLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+
+            android:id="@+id/car_N"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:layout_x="74dp"
+            android:layout_y="155dp"
+            android:text="차 번호" />
+
+        <EditText
+            android:id="@+id/car_Numin"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_x="148dp"
+            android:layout_y="133dp"
+            android:hint="예)12가3456"/>
+<!--차번호-->
+        <TextView
+            android:id="@+id/car_type"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_x="73dp"
+            android:layout_y="229dp"
+            android:text="차 종류" />
+<!--차종류-->
+        <EditText
+            android:id="@+id/car_ty"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_x="147dp"
+            android:layout_y="217dp"
+            android:hint="예)BEV"/>
+
+        <TextView
+            android:id="@+id/phone_N"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="62dp"
+            android:layout_y="309dp"
+            android:text="핸드폰 번호" />
+
+        <EditText
+            android:id="@+id/pho_N"
+            android:layout_width="193dp"
+            android:layout_height="wrap_content"
+            android:layout_x="144dp"
+            android:layout_y="288dp"
+            android:hint="예)01012345678"/>
+<!--핸드폰 번호-->
+
+
+        <Button
+            android:id="@+id/btn_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="83dp"
+            android:layout_y="558dp"
+            android:text="가 입" />
+
+        <Button
+            android:id="@+id/btn_cancel_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="265dp"
+            android:layout_y="558dp"
+            android:text="취 소" />
+
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="65dp"
+            android:layout_y="381dp"
+            android:text="비밀번호" />
+
+        <EditText
+            android:id="@+id/passwordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="137dp"
+            android:layout_y="376dp"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+
+    </AbsoluteLayout>
+
+</LinearLayout>
