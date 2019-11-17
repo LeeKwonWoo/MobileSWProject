@@ -24,19 +24,19 @@
             android:layout_y="121dp"
             android:text="도로명 주소" />
 
-        <EditText
+        <TextView
             android:id="@+id/addressText"
             android:layout_width="154dp"
             android:layout_height="wrap_content"
             android:layout_x="180dp"
-            android:layout_y="100dp" />
+            android:layout_y="122dp" />
 
-        <EditText
+        <TextView
             android:id="@+id/carNumText"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_x="184dp"
-            android:layout_y="169dp" />
+            android:layout_x="181dp"
+            android:layout_y="189dp" />
 
         <TextView
             android:id="@+id/carNum"

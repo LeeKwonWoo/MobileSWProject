@@ -14,18 +14,18 @@
 
         <Button
             android:id="@+id/loginbtn"
-            android:layout_width="wrap_content"
+            android:layout_width="392dp"
             android:layout_height="wrap_content"
-            android:layout_x="58dp"
-            android:layout_y="549dp"
+            android:layout_x="16dp"
+            android:layout_y="404dp"
             android:text="로그인" />
 
         <Button
             android:id="@+id/signbtn"
-            android:layout_width="wrap_content"
+            android:layout_width="376dp"
             android:layout_height="wrap_content"
-            android:layout_x="282dp"
-            android:layout_y="549dp"
+            android:layout_x="25dp"
+            android:layout_y="579dp"
             android:text="회원가입" />
 
         <TextView
@@ -65,11 +65,19 @@
 
         <Button
             android:id="@+id/findPassbtn"
-            android:layout_width="wrap_content"
+            android:layout_width="381dp"
             android:layout_height="wrap_content"
-            android:layout_x="173dp"
-            android:layout_y="551dp"
+            android:layout_x="18dp"
+            android:layout_y="522dp"
             android:text="비밀번호 찾기" />
+
+        <Button
+            android:id="@+id/findIdbtn"
+            android:layout_width="383dp"
+            android:layout_height="wrap_content"
+            android:layout_x="22dp"
+            android:layout_y="462dp"
+            android:text="아이디 찾기" />
 
     </AbsoluteLayout>
 

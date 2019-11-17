@@ -79,8 +79,8 @@
             android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_x="65dp"
-            android:layout_y="381dp"
+            android:layout_x="62dp"
+            android:layout_y="473dp"
             android:text="비밀번호" />
 
         <EditText
@@ -88,9 +88,51 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_x="137dp"
-            android:layout_y="376dp"
+            android:layout_y="459dp"
             android:ems="10"
             android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/idTextView"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_x="72dp"
+            android:layout_y="86dp"
+            android:text="id" />
+
+        <EditText
+            android:id="@+id/idEditText"
+            android:layout_width="157dp"
+            android:layout_height="wrap_content"
+            android:layout_x="146dp"
+            android:layout_y="67dp"
+            android:ems="10" />
+
+        <Button
+            android:id="@+id/idbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="317dp"
+            android:layout_y="64dp"
+            android:text="중복확인" />
+
+        <TextView
+            android:id="@+id/emailTextVIew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="60dp"
+            android:layout_y="387dp"
+            android:text="email" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="141dp"
+            android:layout_y="371dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="email을 입력하세요."/>
 
 
     </AbsoluteLayout>
