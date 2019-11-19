@@ -2,6 +2,7 @@ package com.htc.mapview;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PointF;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,8 +12,11 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.skt.Tmap.TMapGpsManager;
 import com.skt.Tmap.TMapMarkerItem;
+import com.skt.Tmap.TMapPOIItem;
 import com.skt.Tmap.TMapPoint;
 import com.skt.Tmap.TMapView;
 
@@ -26,6 +30,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
     EditText edit;
     TextView text;
     LinearLayout linearLayout1;
+    TMapGpsManager gps = null;
+    Button btn1;
+    String msg;
+
+    boolean num=false;
+    boolean eng=false;
+    boolean kor=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +86,41 @@ public class MainActivity extends AppCompatActivity {
             mapMarkerItem1.setTMapPoint((TMapPoint) arrayList.get(i));
             tMapView.addMarkerItem("전기차 충전소"+i,mapMarkerItem1);
         }
+        tMapView.setTrackingMode(true);
+        tMapView.setSightVisible(true);
+    }
+    public void btnclick(View v)
+    {
+
+        for(int i=0; i< edit.getText().length(); i++)
+        {
+            int index = edit.getText().charAt(i);
+            if(index>= 48 && index <=57)
+            {
+                num=true;
+            }
+            else if (index >=65 && index <=122)
+            {
+                eng=true;
+            }
+            else
+            {
+                kor=true;
+            }
+        }
+        if(num)
+        {
+            Toast.makeText(getApplicationContext(),"숫자입니다.",Toast.LENGTH_SHORT).show();
+        }
+        else if (eng)
+        {
+            Toast.makeText(getApplicationContext(),"영어 입니다.",Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"한글입니다.",Toast.LENGTH_SHORT).show();
+        }
+
     }
 //    public void mOnClick(View v)
 //    {
